@@ -1,45 +1,47 @@
 let textInput = document.getElementById('textInput');
 let submitBtn = document.getElementById('submitBtn');
 
-let codeString = '';
-let matchConfirmation = Boolean;
-let openBrackets = [];
-let closedBrackets = [];
 
-submitBtn.onclick = (e) => {
-    e.preventDefault();
-    codeString = textInput.value;
-    findMatch();
-}
+let findBracketMatch = (codeString) => {
 
-let findOpenBrackets = (item, index) => {
-    if (item === '{') {
-        openBrackets.push(index);
-    } 
-    if (item === '}') {
-        closedBrackets.push(index);
-    } 
+    let matchConfirmation = Boolean;
+    let openBrackets = [];
+    let closedBrackets = [];
 
-};
+    codeString.split('').forEach(
+        function findOpenBrackets(item, index) {
+            if (item === '{') {
+                openBrackets.push(index);
+            }
+            if (item === '}') {
+                closedBrackets.push(index);
+            }
 
-let findClosedBrackets = (item, index) => {
-    if (codeString.includes('}', item)) {
-        matchConfirmation = true;
-    } else {
-        matchConfirmation = false;
-    }
-};
+        }
+    );
 
-let findMatch = () => {
-    codeString.split('').forEach(findOpenBrackets);
-    
     if (openBrackets.length !== closedBrackets.length) {
         matchConfirmation = false;
     } else if (!codeString.includes('{') && !codeString.includes('}')) {
         matchConfirmation = true;
     } else {
-        openBrackets.forEach(findClosedBrackets);
+        openBrackets.forEach(
+            function findClosedBrackets(item, index) {
+                if (codeString.includes('}', item)) {
+                    matchConfirmation = true;
+                } else {
+                    matchConfirmation = false;
+                }
+            }
+        );
     };
 
     console.log("Match Confirmed? ", matchConfirmation);
+};
+
+
+submitBtn.onclick = (e) => {
+    e.preventDefault();
+    let codeString = textInput.value;
+    findBracketMatch(codeString);
 }
