@@ -1,6 +1,6 @@
 # Bracket Checker
 
-* __Deployed link: __ https://jaromplewe.github.io/code-test-1/
+* __Deployed link:__ https://jaromplewe.github.io/code-test-1/
 
 * Open your console
 * Enter your code and click submit
