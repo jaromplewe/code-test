@@ -2,6 +2,6 @@
 
 * __Deployed link:__ https://jaromplewe.github.io/code-test-1/
 
-* Open your console
-* Enter your code and click submit
-* Console will return "true" if you have closing brackets for all respective open brackets, or if there are no brackets in your codes
+1. Open your console
+2. Enter your code and click submit
+3. Console will return "true" if you have closing brackets for all respective open brackets, or if there are no brackets in your codes
