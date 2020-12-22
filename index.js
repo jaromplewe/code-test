@@ -3,15 +3,14 @@ let submitBtn = document.getElementById('submitBtn');
 
 let codeString = '';
 let matchConfirmation = Boolean;
+let openBrackets = [];
+let closedBrackets = [];
 
 submitBtn.onclick = (e) => {
     e.preventDefault();
     codeString = textInput.value;
     findMatch();
 }
-
-let openBrackets = [];
-let closedBrackets = [];
 
 let findOpenBrackets = (item, index) => {
     if (item === '{') {
