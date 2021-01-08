@@ -8,10 +8,10 @@ let findBracketMatch = (codeString) => {
     let codeStringArr = codeString.split('')
 
     for (let i = 0; i < codeStringArr.length; i++) {
-        if (codeStringArr[i] == '{') {
+        if (codeStringArr[i] === '{') {
             bracketCounter += 1;
         }
-        if (codeStringArr[i] == '}') {
+        if (codeStringArr[i] === '}') {
             bracketCounter -= 1;
         }
         if (bracketCounter < 0) {
